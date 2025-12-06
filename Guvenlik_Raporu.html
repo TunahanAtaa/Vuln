@@ -1,0 +1,77 @@
+
+    <!DOCTYPE html>
+    <html lang="tr">
+    <head>
+        <meta charset="UTF-8">
+        <title>Güvenlik Tarama Raporu</title>
+        <style>
+            body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 40px; background-color: #f4f4f9; }
+            h1 { color: #2c3e50; border-bottom: 2px solid #3498db; padding-bottom: 10px; }
+            .info { background: #ecf0f1; padding: 15px; border-radius: 5px; margin-bottom: 20px; }
+            table { width: 100%; border-collapse: collapse; box-shadow: 0 0 20px rgba(0,0,0,0.1); background-color: white; }
+            th, td { padding: 15px; text-align: left; border-bottom: 1px solid #ddd; }
+            th { background-color: #2c3e50; color: white; }
+            tr:hover { background-color: #f5f5f5; }
+            .risk-Yüksek, .risk-KRİTİK { color: white; background-color: #e74c3c; font-weight: bold; padding: 5px 10px; border-radius: 4px; }
+            .risk-Orta { color: white; background-color: #f39c12; font-weight: bold; padding: 5px 10px; border-radius: 4px; }
+            .risk-Düşük { color: white; background-color: #27ae60; font-weight: bold; padding: 5px 10px; border-radius: 4px; }
+        </style>
+    </head>
+    <body>
+        <h1>Otomatik Zafiyet Tarama Raporu</h1>
+        <div class="info">
+            <p><strong>Hedef Site:</strong> http://localhost:3000</p>
+            <p><strong>Tarama Tarihi:</strong> 06-12-2025 13:00</p>
+            <p><strong>Test Eden:</strong> Playwright Otomasyon Botu</p>
+        </div>
+        
+        <table>
+            <thead>
+                <tr>
+                    <th>Saat</th>
+                    <th>Kategori</th>
+                    <th>Zafiyet Detayı</th>
+                    <th>Kanıt (Proof)</th>
+                    <th>Risk Seviyesi</th>
+                </tr>
+            </thead>
+            <tbody>
+    
+                <tr>
+                    <td>13:00:01</td>
+                    <td>Güvenlik Başlığı</td>
+                    <td>CSP Başlığı Eksik</td>
+                    <td><code>Header Yok</code></td>
+                    <td><span class="risk-Orta">Orta</span></td>
+                </tr>
+        
+                <tr>
+                    <td>13:00:01</td>
+                    <td>Güvenlik Başlığı</td>
+                    <td>HSTS Başlığı Eksik</td>
+                    <td><code>Header Yok</code></td>
+                    <td><span class="risk-Düşük">Düşük</span></td>
+                </tr>
+        
+                <tr>
+                    <td>13:00:08</td>
+                    <td>Reflected XSS</td>
+                    <td>Arama kutusunda JS kodu çalıştırıldı.</td>
+                    <td><code>Mesaj: xss</code></td>
+                    <td><span class="risk-Yüksek">Yüksek</span></td>
+                </tr>
+        
+                <tr>
+                    <td>13:00:10</td>
+                    <td>SQL Injection (Login Bypass)</td>
+                    <td>Network Interception ile Admin hesabı ele geçirildi.</td>
+                    <td><code>Token Alındı: eyJ0eXAiOiJKV1Q...</code></td>
+                    <td><span class="risk-KRİTİK">KRİTİK</span></td>
+                </tr>
+        
+            </tbody>
+        </table>
+        <p style="text-align: center; margin-top: 30px; color: #7f8c8d;">Bu rapor otomatik olarak oluşturulmuştur.</p>
+    </body>
+    </html>
+    
